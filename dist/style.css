@@ -1,0 +1,33 @@
+body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+/* Header */
+header {
+  text-align: center; 
+  background-color:rgb(63, 126, 141);
+  color: white;
+}
+
+h1 {
+  font-size: 75px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.card {
+  box-shadow: 5px 5px 5px;
+  margin: 10% 25%;
+}
+
+.card-header {
+  background-color: rgb(172, 127, 255);
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.role {
+  font-size: 20px;
+  font-weight: 500;
+}
