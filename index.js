@@ -51,12 +51,11 @@ const inquireManager = () => {
       name: "officeNum"
     },
 
-  ]).then(managerInfo => {
-    const { name, id, email, officeNum } = managerInfo;
-    const manager = new Manager (name, id, email, officeNum);
-
+  ]).then(data => {
+    if(data.role === "manager") {
+    const manager = new Manager (data.name, data.id, data.email, data.officeNum);
     team.push(manager);
-    console.log(manager);
+    }
   })
 };
 
@@ -69,6 +68,7 @@ const inquireEmployee = () => {
       name: "role",
       choices: ["Engineer", "Intern", "No more team members to add."]
     },
+
     {
       type: "input",
       message: "What is the member's name?",
@@ -108,7 +108,7 @@ const inquireEmployee = () => {
       type: "input",
       message: "What is the member's github?",
       name: "github",
-      when: (input) => input.role === "Engineer",
+      when: (input) => input.role === "engineer",
       validate: githubInput => {
         if (githubInput) {
           return true;
@@ -132,8 +132,24 @@ const inquireEmployee = () => {
           return false;
         }
       }
-    }
+    },
 
-  ])
-}
+    {
+      type: "list",
+      message: "Would you like to add another team member?",
+      name: "addAnother",
+      choices: ["yes", "no"],
+    },
+
+  ]).then((data) => {
+    if (data.role === 'engineer') {
+      const engineer = new Engineer(data.name, data.id, data.email, data.github);
+      team.push(engineer)
+    }
+    if (data.role === 'intern') {
+      const intern = new Intern(data.name, data.id, data.email, data.school);
+      team.push(intern)
+    }
+  })
+};
 
