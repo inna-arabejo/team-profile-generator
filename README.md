@@ -1,5 +1,7 @@
 # Team Profile Generator
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 ## Description
 Build a team profile generator that gives managers quick access to employee emails and GitHub profiles. Each profile should include Build a Node.js command-line application that takes information on a software engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you'll also write a unite test for every part of your code and ensure that it passes each test. An employer or employee of a company,  I want to generate a webpage that displays my team's basic info so that I have quick access to their emails and GitHub profiles. 
 
