@@ -22,9 +22,10 @@ h1 {
 }
 
 .card-header {
-  background-color: rgb(172, 127, 255);
+  background-color: rgb(139, 103, 207);
   font-size: 25px;
   font-weight: 600;
+  color: white;
 }
 
 .role {
