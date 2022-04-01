@@ -18,7 +18,7 @@ h1 {
 
 .card {
   box-shadow: 5px 5px 5px;
-  margin: 10% 25%;
+  margin: 2%;
 }
 
 .card-header {
@@ -26,9 +26,13 @@ h1 {
   font-size: 25px;
   font-weight: 600;
   color: white;
+  text-align: center;
 }
 
 .role {
   font-size: 20px;
   font-weight: 500;
+  text-align: center;
+  background-color: rgb(139, 103, 207);
+  color: white;
 }
