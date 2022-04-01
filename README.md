@@ -3,7 +3,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
-Build a team profile generator that gives managers quick access to employee emails and GitHub profiles. Each profile should include Build a Node.js command-line application that takes information on a software engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you'll also write a unite test for every part of your code and ensure that it passes each test. An employer or employee of a company,  I want to generate a webpage that displays my team's basic info so that I have quick access to their emails and GitHub profiles. 
+Build a team profile generator that gives managers quick access to employee emails and GitHub profiles. Each profile will have the employee's name, id, and email. The manager profile will have additional office number information, engineer profile includes a github and the intern profile includes the name of the school they went to. You will be using Node.js command-line application which will generate an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you'll also write a unite test for every part of your code and ensure that it passes each test.
 
 ## Table of Contents
 * [Installation](#installation)
@@ -15,28 +15,39 @@ Build a team profile generator that gives managers quick access to employee emai
 
 ## Installation
 Please install the following dependencies to run the application. 
+* [npm inquirer package](https://www.npmjs.com/package/inquirer)
+* [npm jest package](https://www.npmjs.com/package/jest)
 
 ## Task
-In order to use this application, the following requirements are met when: 
-- The user is prompted and displa
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
+In order to use this application, the following requirements are met when:
+```md
+GIVEN a command-line application that accepts user input
+WHEN I am prompted for my team members and their information
+THEN an HTML file is generated that displays a nicely formatted team roster based on user input
+WHEN I click on an email address in the HTML
+THEN my default email program opens and populates the TO field of the email with the address
+WHEN I click on the GitHub username
+THEN that GitHub profile opens in a new tab
+WHEN I start the application
+THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
+WHEN I enter the team manager’s name, employee ID, email address, and office number
+THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
+WHEN I select the engineer option
+THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
+WHEN I select the intern option
+THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
+WHEN I decide to finish building my team
+THEN I exit the application, and the HTML is generated
+```
 
 ## Screenshots
 ![My team profile generator](./)
 
-## Sources
+## Tests
+The application must include `Employee`, `Manager`, `Engineer`, and `Intern` classes. The tests for these classes (in the `tests` directory) must ALL pass. To start running the test, in the command-line type "`npm run test`".
 
 ## License
+ This project is covered under MIT.
 
 ## Questions
 For inquiries about the repo, you can find me through GitHub at [inna-arabejo](https://github.com/inna-arabejo). 
