@@ -6,7 +6,7 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const { off } = require('process');
 
-const team = [];
+const teamArray = [];
 
 const inquireManager = () => {
   return inquirer.prompt([
@@ -81,7 +81,7 @@ const inquireEmployee = () => {
       name: "id",
       validate: idInput => {
         if (isNaN(idInput)) {
-          console.log("Invalid ID input. Please try again.")
+          console.log(" Invalid ID input. Please try again.")
           return false;
         } else {
           return true;
@@ -98,7 +98,7 @@ const inquireEmployee = () => {
         if (valid) {
           return true;
         } else {
-          console.log("Invalid email input. Please try again.")
+          console.log(" Invalid email input. Please try again.")
           return false;
         }
       }
@@ -108,13 +108,12 @@ const inquireEmployee = () => {
       type: "input",
       message: "What is the member's github?",
       name: "github",
-      when: (input) => input.role === "engineer",
+      // when: (input) => input.role === "engineer",
       validate: githubInput => {
         if (githubInput) {
           return true;
         } else {
-          console.log("Invalid github input. Please try again.")
-          return false;
+          console.log(" Invalid github input. Please try again.")
         }
       }
     },
@@ -123,13 +122,12 @@ const inquireEmployee = () => {
       type: "input",
       message: "Where did the member attend school?",
       name: "school",
-      when: (input) => input.role === "Intern",
-      validate: schoolInput => {
-        if (schoolInput) {
+      // when: (input) => input.role === "intern",
+      validate: school => {
+        if (school) {
           return true;
         } else {
-          console.log("Invalid github input. Please try again.")
-          return false;
+          console.log(" Invalid github input. Please try again.")
         }
       }
     },
@@ -140,16 +138,47 @@ const inquireEmployee = () => {
       name: "addAnother",
       choices: ["yes", "no"],
     },
-
+   
   ]).then((data) => {
-    if (data.role === 'engineer') {
+
+    let teamMember = data;
+
+    if (data.role === "engineer") {
       const engineer = new Engineer(data.name, data.id, data.email, data.github);
-      team.push(engineer)
+      teamArray.push(engineer);
     }
-    if (data.role === 'intern') {
+    if (data.role === "intern") {
       const intern = new Intern(data.name, data.id, data.email, data.school);
-      team.push(intern)
+      teamArray.push(intern);
+    }
+    teamArray.push(teamMember);
+    
+    if(data.addAnother === "yes") {
+      return inquireEmployee();
+    } else {
+      return teamArray
     }
   })
 };
+
+const writeFile = (data) => {
+  fs.writeFile('./dist/index.html', data, err => {
+    if(err) {
+      console.log("Please be sure to answer all questions.")
+      return
+    } else {
+      console.log("You have successfully created your team profile.")
+    }
+  })
+}
+
+inquireManager()
+  .then(inquireEmployee)
+  .then(teamArray => {
+    return generateHTML(teamArray);
+  }).then(data => {
+    return writeFile(data);
+  }).catch(err => {
+  console.log(err);
+  });
 
