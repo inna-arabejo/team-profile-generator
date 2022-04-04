@@ -1,7 +1,7 @@
 const Employee = require('../lib/Employee');
 
 describe("Team", () => {
-  test('create an Employee object', () => {
+  test("create an Employee object", () => {
     const employee = new Employee('Carl', 1, 'carl@mailto.com');
     
     it("Returns the name of employee", () => {
