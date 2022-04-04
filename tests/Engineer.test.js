@@ -1,10 +1,29 @@
 const Engineer = require('../lib/Engineer');
 
-test('create an Engineer object', () => {
-  const engineer = new Engineer('Inna', 2, 'iarabejo3@gmail.com', 'inna-arabejo');
+describe("Engineer profile", () => {
+  test("create a Engineer object", () => {
+    const engineer = new Engineer("Inna", "2", "iarabejo3@gmail.com", "inna-arabejo");
+    
+    it("Returns the name of employee", () => {
+      expect(engineer.getName()).toEqual("Inna");
+    });
 
-  expect(engineer.name).toEqual('Inna');
-  expect(engineer.id).toEqual('2');
-  expect(engineer.email).toEqual('iarabejo3@gmail.com');
-  expect(engineer.github).toEqual('inna-arabejo');
+    it("Returns the id of employee", () => {
+      expect(engineer.getId()).toEqual("2");
+    });
+
+    it("Returns the email of employee", () => {
+      expect(engineer.getEmail()).toEqual("iarabejo3@gmail.com");
+    });
+
+    it("Returns the github of employee", () => {
+      expect(engineer.getGitHub()).toEqual("inna-arabejo");
+    });
+
+    it("Returns the role of employee", () => {
+      expect(engineer.getRole()).toEqual("engineer");
+    });
+
+  });
 });
+
