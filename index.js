@@ -1,10 +1,12 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateHTML = require('./lib/generateHTML');
+const path = require('path');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const { off } = require('process');
+const DIST_DIR = path.resolve(__dirname, 'dist');
+const distPath = path.join(DIST_DIR, 'index.html');
+const generateHTML = require('./lib/generateHTML');
 
 const teamArray = [];
 
@@ -54,7 +56,8 @@ const inquireManager = () => {
   ]).then(data => {
     if(data.role === "manager") {
     const manager = new Manager (data.name, data.id, data.email, data.officeNum);
-    team.push(manager);
+    teamArray.push(manager);
+
     }
   })
 };

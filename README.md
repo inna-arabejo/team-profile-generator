@@ -3,7 +3,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
-Build a team profile generator that gives managers quick access to employee emails and GitHub profiles. Each profile will have the employee's name, id, and email. The manager profile will have additional office number information, engineer profile includes a github and the intern profile includes the name of the school they went to. You will be using Node.js command-line application which will generate an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you'll also write a unite test for every part of your code and ensure that it passes each test.
+Build a team profile generator that gives managers quick access to employee emails and GitHub profiles. Each profile will have the employee's name, id, and email. The employees consist of the manager, engineer and intern. The office number will be added to the manager's profile, a github link is added to the engineer's profile, and the school the intern went to. You will be using Node.js command-line application which will generate an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you'll also write a unite test for every part of your code and ensure that it passes each test.
 
 ## Table of Contents
 * [Installation](#installation)
