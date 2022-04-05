@@ -1,12 +1,12 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const path = require('path');
+// const path = require('path');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const DIST_DIR = path.resolve(__dirname, 'dist');
-const distPath = path.join(DIST_DIR, 'index.html');
-const generateHTML = require('./lib/createHTML');
+// const DIST_DIR = path.resolve(__dirname, 'dist');
+// const distPath = path.join(DIST_DIR, 'index.html');
+const createHTML = require('./src/createHTML');
 
 const teamArray = [];
 
@@ -69,13 +69,13 @@ const inquireEmployee = () => {
       type: "list",
       message: "Which team member would you like to add?",
       name: "role",
-      choices: ["Engineer", "Intern", "No more team members to add."]
+      choices: ["Engineer", "Intern"]
     },
 
     {
       type: "input",
-      message: "What is the member's name?",
-      name: "memberName",
+      message: "What is the employee's name?",
+      name: "name",
     },
 
     {
@@ -111,9 +111,9 @@ const inquireEmployee = () => {
       type: "input",
       message: "What is the member's github?",
       name: "github",
-      // when: (input) => input.role === "engineer",
-      validate: githubInput => {
-        if (githubInput) {
+      when: (input) => input.role === "Engineer",
+      validate: nameInput => {
+        if (nameInput) {
           return true;
         } else {
           console.log(" Invalid github input. Please try again.")
@@ -125,9 +125,9 @@ const inquireEmployee = () => {
       type: "input",
       message: "Where did the member attend school?",
       name: "school",
-      // when: (input) => input.role === "intern",
-      validate: school => {
-        if (school) {
+      when: (input) => input.role === "Intern",
+      validate: nameInput => {
+        if (nameInput) {
           return true;
         } else {
           console.log(" Invalid github input. Please try again.")
@@ -136,35 +136,35 @@ const inquireEmployee = () => {
     },
 
     {
-      type: "list",
+      type: "confirm",
       message: "Would you like to add another team member?",
       name: "addAnother",
-      choices: ["yes", "no"],
-    },
+      default: false
+    }
    
-  ]).then((data) => {
+  ]).then(memberData => {
 
-    let teamMember = data;
+    const { name, id, email, role, github, school, addAnother } = memberData;
+    let teamMember;
 
-    if (data.role === "engineer") {
-      const engineer = new Engineer(data.name, data.id, data.email, data.github);
-      teamArray.push(engineer);
+    if (role === "Engineer") {
+      teamMember = new Engineer(name, id, email, github);
+
+    } else if (role === "Intern") {
+      teamMember = new Intern(name, id, email, school);
     }
-    if (data.role === "intern") {
-      const intern = new Intern(data.name, data.id, data.email, data.school);
-      teamArray.push(intern);
-    }
+
     teamArray.push(teamMember);
     
-    if(data.addAnother === "yes") {
-      return inquireEmployee();
+    if (addAnother) {
+      return inquireEmployee(teamArray);
     } else {
-      return teamArray
+      return teamArray;
     }
   })
 };
 
-const writeFile = (data) => {
+const writeFile = data => {
   fs.writeFile('./dist/index.html', data, err => {
     if(err) {
       console.log("Please be sure to answer all questions.")
@@ -175,12 +175,14 @@ const writeFile = (data) => {
   })
 }
 
+
+
 inquireManager()
   .then(inquireEmployee)
   .then(teamArray => {
-    return generateHTML(teamArray);
-  }).then(data => {
-    return writeFile(data);
+    return createHTML(teamArray);
+  }).then(profileHTML => {
+    return writeFile(profileHTML);
   }).catch(err => {
   console.log(err);
   });

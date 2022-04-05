@@ -40,17 +40,51 @@ const createIntern = intern => {
   <div class="card" style="width: 18rem;" >
     <div class="card-header">Name: ${intern.getName()}</div>
     <div class="card-body role">
-      <i class="fa-solid fa-clipboard-question"></i> Role: ${intern.getRole()}</div>
+    <i class="fa-solid fa-clipboard-question"></i> Role: ${intern.getRole()}</div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">ID: ${intern.getId()}</li>
-      <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-      <li class="list-group-item">School: ${intern.getSchool()}</li>
+    <li class="list-group-item">ID: ${intern.getId()}</li>
+    <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+    <li class="list-group-item">School: ${intern.getSchool()}</li>
     </ul>
-  </div>
-  `;
-};
+    </div>
+    `;
+  };
+  
+  createHTML = (data) => {
+    // array for cards 
+    pageArr = []; 
+    for (let i = 0; i < data.length; i++) {
+        const teamMember = data[i];
+        const role = teamMember.getRole(); 
+  
+        if (role === 'Manager') {
+            const managerData = createManager(teamMember);
+  
+            pageArr.push(managerData);
+        }
+  
+        if (role === 'Engineer') {
+            const engineerData = createEngineer(teamMember);
+  
+            pageArr.push(engineerData);
+        }
+  
+        if (role === 'Intern') {
+            const internData = createIntern(teamMember);
+  
+            pageArr.push(internData);
+        }
+        
+    }
+  
+    const teamMemberData = pageArr.join('')
 
-function createHTML(profiles) {
+    const createTeam = createTeamPage(teamMemberData); 
+    return createTeam;
+  
+  }
+
+  const createTeamPage = (teamMemberData) => {
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -69,7 +103,7 @@ function createHTML(profiles) {
 
     <main class="container-fluid">
       <div class="row justify-content-center">
-        ${profiles}
+        ${teamMemberData}
       </div>
     </main>
     
@@ -78,7 +112,9 @@ function createHTML(profiles) {
   `
 }
 
-module.exports = {createManager, createEngineer, createIntern, createHTML};
+
+
+module.exports = createHTML;
 
   
 
