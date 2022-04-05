@@ -107,6 +107,7 @@ const createIntern = intern => {
       </div>
     </main>
     
+    <script src="https://kit.fontawesome.com/c2cdfae132.js" crossorigin="anonymous"></script>
   </body>
   </html>
   `

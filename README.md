@@ -41,7 +41,9 @@ THEN I exit the application, and the HTML is generated
 ```
 
 ## Screenshots
-![My team profile generator](./)
+![My team profile generator](./assets/images/pass-tests-screenshot.jpg)
+![My team profile generator](./assets/images/input-screenshot.jpg)
+![My team profile generator](./assets/images/deployed-page.jpg)
 
 ## Tests
 The application must include `Employee`, `Manager`, `Engineer`, and `Intern` classes. The tests for these classes (in the `tests` directory) must ALL pass. To start running the test, in the command-line type "`npm run test`".

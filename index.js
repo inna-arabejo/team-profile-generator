@@ -53,13 +53,13 @@ const inquireManager = () => {
       name: "officeNum"
     },
 
-  ]).then(data => {
-    if(data.role === "manager") {
-    const manager = new Manager (data.name, data.id, data.email, data.officeNum);
+  ]).then(managerData => {
+    const { name, id, email, officeNum } = managerData;
+    const manager = new Manager (name, id, email, officeNum);
+    
     teamArray.push(manager);
-
-    }
   })
+
 };
 
 
