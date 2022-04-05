@@ -47,7 +47,7 @@ THEN I exit the application, and the HTML is generated
 ![My team profile generator](./assets/images/deployed-page.jpg)
 
 ## Video
-![Team profile generator walkthrough video](./assets/images/walkthrough-video.mp4)
+
 [Team profile generator walkthrough video](./assets/images/walkthrough-video.mp4)
 
 ## Tests
