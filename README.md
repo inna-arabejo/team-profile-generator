@@ -9,6 +9,7 @@ Build a team profile generator that gives managers quick access to employee emai
 * [Installation](#installation)
 * [Task](#task)
 * [Screenshots](#screenshots)
+* [Video](#video)
 * [Sources](#sources)
 * [License](#license)
 * [Questions](#questions)
@@ -45,8 +46,13 @@ THEN I exit the application, and the HTML is generated
 ![My team profile generator](./assets/images/input-screenshot.jpg)
 ![My team profile generator](./assets/images/deployed-page.jpg)
 
+## Video
+![Team profile generator walkthrough video](./assets/images/walkthrough-video.mp4)
+[Team profile generator walkthrough video](./assets/images/walkthrough-video.mp4)
+
 ## Tests
 The application must include `Employee`, `Manager`, `Engineer`, and `Intern` classes. The tests for these classes (in the `tests` directory) must ALL pass. To start running the test, in the command-line type "`npm run test`".
+To generate user-input in the command-line, type "`node index.js`".
 
 ## License
  This project is covered under MIT.
