@@ -6,7 +6,7 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const DIST_DIR = path.resolve(__dirname, 'dist');
 const distPath = path.join(DIST_DIR, 'index.html');
-const generateHTML = require('./lib/generateHTML');
+const generateHTML = require('./lib/createHTML');
 
 const teamArray = [];
 
