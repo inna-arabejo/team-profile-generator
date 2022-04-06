@@ -10,7 +10,7 @@ Build a team profile generator that gives managers quick access to employee emai
 * [Task](#task)
 * [Screenshots](#screenshots)
 * [Video](#video)
-* [Sources](#sources)
+* [Tests](#tests)
 * [License](#license)
 * [Questions](#questions)
 
