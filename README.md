@@ -48,7 +48,7 @@ THEN I exit the application, and the HTML is generated
 
 ## Video
 
-[Team profile generator walkthrough video](./assets/images/walkthrough-video.mp4)
+[Team profile generator walkthrough video](https://www.youtube.com/watch?v=1UNh4dyJ0Z4)
 
 ## Tests
 The application must include `Employee`, `Manager`, `Engineer`, and `Intern` classes. The tests for these classes (in the `tests` directory) must ALL pass. To start running the test, in the command-line type "`npm run test`".
