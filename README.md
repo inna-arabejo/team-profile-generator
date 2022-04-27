@@ -8,7 +8,7 @@ Build a team profile generator that gives managers quick access to employee emai
 ## Table of Contents
 1. [Installation](#installation)
 2. [Task](#task)
-3. [Usage](#usage
+3. [Usage](#usage)
 4. [Screenshots](#screenshots)
 5. [Video](#video)
 6. [License](#license)
